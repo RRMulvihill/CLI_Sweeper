@@ -83,8 +83,17 @@ class Board:
         tile.flagged = True
 
 game_in_progress = True
+operating_system = input("CLI Sweeper\nBy Riley Mulvihill\n What is your operating system? [1] Windows, [2] Linux/Apple\n")
+if int(operating_system) == 1:
+    clear = "cls"
+elif int(operating_system) == int(2):
+    clear = "clear"
+else:
+    print("Invalid Entry, some funtionality may not be available")
+    clear = ""
 while game_in_progress == True:
-    difficulty = input("CLI Sweeper\nBy Riley Mulvihill\nSelect Difficulty [1] Easy, [2] Medium, [3] Hard, [4] Custom\n")
+    os.system(clear)
+    difficulty = input("Select Difficulty [1] Easy, [2] Medium, [3] Hard, [4] Custom\n")
     if int(difficulty) == 1:
         x = y = mines = 3
     elif int(difficulty) == 2:
@@ -101,7 +110,7 @@ while game_in_progress == True:
     board.generate_board()
     board.list_board()
     board.generate_tile_values()
-    os.system('cls')
+    os.system(clear)
     board.print_board()
     while board.game_over == False:
         x_coordinate = input("\nPick an x cord\n")
@@ -111,10 +120,11 @@ while game_in_progress == True:
             board.flag_tile(int(x_coordinate) - 1, int(y_coordinate) - 1)
         else:
             board.pop_tile(int(x_coordinate) - 1, int(y_coordinate) - 1)
-        os.system('cls')
+        os.system(clear)
         board.print_board()
     play_again = input("\nAnother? y/n\n")
-    if play_again == 'n':
+    if play_again == "n":
+        os.system(clear)
         print("Thanks for playing")
         game_in_progress = False
         goodbye = input("Press any key to close")
