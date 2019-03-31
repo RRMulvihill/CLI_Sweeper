@@ -8,4 +8,4 @@ Run board.py to get started sweeping.
 Have fun and watch out for those mines!
 
 /TODO
-Linux Support. Currently only Windows OS can use the clear screen feature. If using Linux, substitute the 'cls' command with 'clear' on lines 104 and 114 of Board.py
+Input checking, please follow the prompts to avoid crashes
